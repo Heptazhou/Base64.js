@@ -1,9 +1,0 @@
-{
-  "name": "hi-base64",
-  "version": "0.2.1",
-  "main": ["src/base64.js"],
-  "ignore": [
-    "samples",
-    "tests"
-  ]
-}
