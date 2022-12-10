@@ -2,7 +2,7 @@
 
 ## v0.2.1 / 2017-01-23
 ### Fixed
-- ArrayBuffer dosen't work in Webpack.
+- ArrayBuffer does not work in Webpack.
 
 ## v0.2.0 / 2015-11-25
 ### Added

@@ -1,79 +1,20 @@
-/* <https://github.com/Heptazhou/Base64.js> v0.3.0
+/* <https://github.com/Heptazhou/Base64.js> v0.3.1
  * @license MIT
- * @license AGPL
+ * @license AGPLv3
  */
 
 "use strict"
 const root = typeof window === "object" ? window : {}
 const BASE64_ENCODE_CHAR = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".split("")
 const BASE64_DECODE_CHAR = {
-	"A": 0,
-	"B": 1,
-	"C": 2,
-	"D": 3,
-	"E": 4,
-	"F": 5,
-	"G": 6,
-	"H": 7,
-	"I": 8,
-	"J": 9,
-	"K": 10,
-	"L": 11,
-	"M": 12,
-	"N": 13,
-	"O": 14,
-	"P": 15,
-	"Q": 16,
-	"R": 17,
-	"S": 18,
-	"T": 19,
-	"U": 20,
-	"V": 21,
-	"W": 22,
-	"X": 23,
-	"Y": 24,
-	"Z": 25,
-	"a": 26,
-	"b": 27,
-	"c": 28,
-	"d": 29,
-	"e": 30,
-	"f": 31,
-	"g": 32,
-	"h": 33,
-	"i": 34,
-	"j": 35,
-	"k": 36,
-	"l": 37,
-	"m": 38,
-	"n": 39,
-	"o": 40,
-	"p": 41,
-	"q": 42,
-	"r": 43,
-	"s": 44,
-	"t": 45,
-	"u": 46,
-	"v": 47,
-	"w": 48,
-	"x": 49,
-	"y": 50,
-	"z": 51,
-	"0": 52,
-	"1": 53,
-	"2": 54,
-	"3": 55,
-	"4": 56,
-	"5": 57,
-	"6": 58,
-	"7": 59,
-	"8": 60,
-	"9": 61,
-	"+": 62,
-	"/": 63,
-	"-": 62,
-	"_": 63,
-}
+	"A":  0, "B":  1, "C":  2, "D":  3, "E":  4, "F":  5, "G":  6, "H":  7, "I":  8, "J":  9,
+	"K": 10, "L": 11, "M": 12, "N": 13, "O": 14, "P": 15, "Q": 16, "R": 17, "S": 18, "T": 19,
+	"U": 20, "V": 21, "W": 22, "X": 23, "Y": 24, "Z": 25, "a": 26, "b": 27, "c": 28, "d": 29,
+	"e": 30, "f": 31, "g": 32, "h": 33, "i": 34, "j": 35, "k": 36, "l": 37, "m": 38, "n": 39,
+	"o": 40, "p": 41, "q": 42, "r": 43, "s": 44, "t": 45, "u": 46, "v": 47, "w": 48, "x": 49,
+	"y": 50, "z": 51, "0": 52, "1": 53, "2": 54, "3": 55, "4": 56, "5": 57, "6": 58, "7": 59,
+	"8": 60, "9": 61, "+": 62, "/": 63, "-": 62, "_": 63,
+} // prettier-ignore
 
 const utf8ToBytes = (str) => {
 	var bytes = []
@@ -107,8 +48,8 @@ const decodeAsBytes = (base64Str) => {
 		bytes = [],
 		index = 0,
 		length = base64Str.length
-	if (base64Str.charAt(length - 2) === "=") length -= 2
-	else if (base64Str.charAt(length - 1) === "=") length -= 1
+	if (base64Str.charAt(length - 1) === "=") length -= 1
+	if (base64Str.charAt(length - 2) === "=") length -= 1
 
 	// 4 char to 3 bytes
 	for (var i = 0, count = (length >> 2) << 2; i < count; ) {
@@ -228,8 +169,8 @@ if (!btoa) {
 			v4,
 			str = "",
 			length = base64Str.length
-		if (base64Str.charAt(length - 2) === "=") length -= 2
-		else if (base64Str.charAt(length - 1) === "=") length -= 1
+		if (base64Str.charAt(length - 1) === "=") length -= 1
+		if (base64Str.charAt(length - 2) === "=") length -= 1
 
 		// 4 char to 3 bytes
 		for (var i = 0, count = (length >> 2) << 2; i < count; ) {
@@ -365,12 +306,12 @@ const encode = (str, asciiOnly) => {
 	var notString = typeof str != "string"
 	if (notString && str.constructor === root.ArrayBuffer) str = new Uint8Array(str)
 	if (notString) return encodeFromBytes(str)
-	else return !asciiOnly && /[^\x00-\x7F]/.test(str) ? utf8Base64Encode(str) : btoa(str)
+	return !asciiOnly && /[^\x00-\x7F]/.test(str) ? utf8Base64Encode(str) : btoa(str)
 }
 
 const decode = (base64Str, asciiOnly, mode = "string") => {
 	if (mode === "bytes") return decodeAsBytes(base64Str)
-	else return asciiOnly ? atob(base64Str) : utf8Base64Decode(base64Str)
+	return asciiOnly ? atob(base64Str) : utf8Base64Decode(base64Str)
 }
 
 const Base64 = {

@@ -7,9 +7,9 @@ A simple Base64 encode / decode function for JavaScript (supports UTF-8).
 
 | raw                                                                      | min                                                                              |
 | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
-| [Base64.js](//raw.github.com/Heptazhou/Base64.js/master/src/Base64.js)   | [Base64.min.js](//raw.github.com/Heptazhou/Base64.js/master/bin/Base64.min.js)   |
-| [Base64.cjs](//raw.github.com/Heptazhou/Base64.js/master/src/Base64.cjs) | [Base64.min.cjs](//raw.github.com/Heptazhou/Base64.js/master/bin/Base64.min.cjs) |
-| [Base64.mjs](//raw.github.com/Heptazhou/Base64.js/master/src/Base64.mjs) | [Base64.min.mjs](//raw.github.com/Heptazhou/Base64.js/master/bin/Base64.min.mjs) |
+| [Base64.js](//github.com/Heptazhou/Base64.js/raw/master/src/Base64.js)   | [Base64.min.js](//github.com/Heptazhou/Base64.js/raw/master/bin/Base64.min.js)   |
+| [Base64.cjs](//github.com/Heptazhou/Base64.js/raw/master/src/Base64.cjs) | [Base64.min.cjs](//github.com/Heptazhou/Base64.js/raw/master/bin/Base64.min.cjs) |
+| [Base64.mjs](//github.com/Heptazhou/Base64.js/raw/master/src/Base64.mjs) | [Base64.min.mjs](//github.com/Heptazhou/Base64.js/raw/master/bin/Base64.min.mjs) |
 
 
 ##	Usage
